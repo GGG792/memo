@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>我的备忘录</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="headerTitle">备忘录</h1>
+    <button id="refreshBtn" title="刷新">⟳</button>
+  </header>
+
+  <!-- 备忘录页 -->
+  <main id="pageMemo" class="page active">
+    <div class="editor card">
+      <textarea id="memoText" placeholder="记点什么..." rows="3"></textarea>
+      <div id="previewRow" class="preview-row"></div>
+      <div class="editor-actions">
+        <label class="btn btn-ghost">
+          📷 添加照片
+          <input type="file" id="photoInput" accept="image/*" multiple hidden>
+        </label>
+        <button id="saveBtn" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+    <div id="memoList"></div>
+  </main>
+
+  <!-- 相册页 -->
+  <main id="pageAlbum" class="page">
+    <p class="album-tip">这里显示手机和网页上传的所有照片</p>
+    <div id="albumGrid" class="album-grid"></div>
+  </main>
+
+  <!-- 底部导航 -->
+  <nav>
+    <button class="tab active" data-page="pageMemo">📝 备忘录</button>
+    <button class="tab" data-page="pageAlbum">🖼️ 相册</button>
+  </nav>
+
+  <!-- 大图查看 -->
+  <div id="viewer" class="viewer hidden">
+    <img id="viewerImg" src="" alt="">
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <div id="loading" class="loading hidden">同步中...</div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
