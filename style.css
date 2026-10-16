@@ -1,0 +1,98 @@
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f5f0e8;
+  color: #333;
+  padding-bottom: 60px;
+}
+
+header {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px;
+  background: #ffbf47;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+header h1 { font-size: 20px; }
+#refreshBtn {
+  border: none; background: rgba(255,255,255,.5);
+  width: 36px; height: 36px; border-radius: 50%;
+  font-size: 20px; cursor: pointer;
+}
+#refreshBtn:active { transform: rotate(180deg); transition: transform .4s; }
+
+.page { display: none; padding: 14px; max-width: 640px; margin: 0 auto; }
+.page.active { display: block; }
+
+.card {
+  background: #fff; border-radius: 12px;
+  padding: 14px; margin-bottom: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+
+.editor textarea {
+  width: 100%; border: none; outline: none; resize: vertical;
+  font-size: 16px; font-family: inherit;
+}
+.preview-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.preview-row img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; }
+.editor-actions {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;
+}
+
+.btn {
+  border: none; border-radius: 8px; padding: 8px 18px;
+  font-size: 15px; cursor: pointer;
+}
+.btn-primary { background: #ffbf47; font-weight: bold; }
+.btn-ghost { background: #f0f0f0; color: #555; display: inline-block; }
+
+.memo-time { font-size: 12px; color: #999; margin-bottom: 6px; }
+.memo-text { font-size: 16px; white-space: pre-wrap; word-break: break-word; }
+.memo-photos { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.memo-photos img { width: 90px; height: 90px; object-fit: cover; border-radius: 8px; cursor: zoom-in; }
+.memo-del {
+  float: right; border: none; background: none;
+  color: #ccc; font-size: 18px; cursor: pointer;
+}
+.memo-del:active { color: #e74c3c; }
+
+.album-tip { font-size: 13px; color: #999; margin-bottom: 10px; }
+.album-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.album-grid img {
+  width: 100%; aspect-ratio: 1; object-fit: cover;
+  border-radius: 4px; cursor: zoom-in; background: #e0e0e0;
+}
+
+nav {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 10;
+  display: flex; background: #fff;
+  border-top: 1px solid #e0e0e0;
+}
+.tab {
+  flex: 1; border: none; background: none;
+  padding: 12px 0 calc(12px + env(safe-area-inset-bottom));
+  font-size: 15px; color: #888; cursor: pointer;
+}
+.tab.active { color: #e8a020; font-weight: bold; }
+
+.viewer {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(0,0,0,.92);
+  display: flex; align-items: center; justify-content: center;
+}
+.viewer img { max-width: 100%; max-height: 100%; }
+.hidden { display: none !important; }
+
+.toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,.75); color: #fff;
+  padding: 10px 20px; border-radius: 20px; font-size: 14px; z-index: 200;
+}
+.loading {
+  position: fixed; top: 60px; left: 50%; transform: translateX(-50%);
+  background: #333; color: #fff;
+  padding: 6px 16px; border-radius: 16px; font-size: 13px; z-index: 200;
+}
